@@ -1,0 +1,59 @@
+# Overwrite or add rules to create your own house style
+#
+# # Use `[a, [b, c]]` not `[ a, [ b, c ] ]`
+# Layout/SpaceInsideArrayLiteralBrackets:
+#   Enabled: false
+
+AllCops:
+  Exclude:
+    - 'bin/**/*'
+    - 'log/**/*'
+    - 'public/**/*'
+    - 'storage/**/*'
+    - 'tmp/**/*'
+    - 'vendor/**/*'
+
+Layout/LineLength:
+  Enabled: true
+  Max: 140
+  Exclude:
+    - 'Gemfile'
+
+Metrics/BlockLength:
+  Enabled: true
+  Exclude:
+    - 'spec/**/*'
+    - 'app/contracts/**/*'
+
+Naming/VariableNumber:
+  Exclude:
+    - '**/*'
+
+Layout/ArgumentAlignment:
+  Exclude:
+    - '**/*'
+
+Layout/FirstHashElementIndentation:
+  Exclude:
+    - '**/*'
+
+Layout/HashAlignment:
+  Exclude:
+    - '**/*'
+
+Layout/MultilineMethodCallBraceLayout:
+  Exclude:
+    - '**/*'
+
+Style/Documentation:
+  Exclude:
+    - '**/*'
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Style/IfUnlessModifier:
+  Enabled: false
