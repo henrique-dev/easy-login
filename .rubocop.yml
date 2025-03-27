@@ -57,3 +57,6 @@ Layout/MultilineMethodCallIndentation:
 
 Style/IfUnlessModifier:
   Enabled: false
+
+Style/ClassVars:
+  Enabled: false
