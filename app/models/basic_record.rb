@@ -26,7 +26,9 @@ class BasicRecord
     end
 
     def create(params)
-      new(params).save
+      record = new(params)
+
+      record.save && record
     end
   end
 
