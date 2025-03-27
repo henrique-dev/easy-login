@@ -36,10 +36,5 @@ RSpec.describe User, type: :model do
       user_params.delete(:email)
       expect(subject).to_not be_valid
     end
-
-    it 'without password is not a valid object' do
-      user_params.delete(:password)
-      expect(subject).to_not be_valid
-    end
   end
 end

@@ -1,0 +1,19 @@
+= form_for :user, url: sign_up_path do |f|
+  | Name:
+  = f.text_field :name, value: @user.name
+  - field_with_error(@errors, 'name').each do |error|
+    = error
+  br
+  | Email:
+  = f.email_field :email, value: @user.email
+  - field_with_error(@errors, 'email').each do |error|
+    = error
+  br
+  | Password:
+  = f.text_field :password, value: @user.password
+  - field_with_error(@errors, 'password').each do |error|
+    = error
+  br
+  = f.submit 'Sign up'
+
+= link_to 'Sign in', sign_in_path

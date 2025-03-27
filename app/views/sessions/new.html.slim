@@ -1,0 +1,12 @@
+= form_for :user, url: sign_in_path do |f|
+  | Email :
+  = f.email_field :email
+  br
+  | Password :
+  = f.password_field :password
+  - if @errors.present?
+    | Email or password is not valid
+  br
+  = f.submit 'Sign in'
+
+= link_to 'Sign up', sign_up_path

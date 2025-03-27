@@ -13,7 +13,8 @@ RSpec.describe CreateUserService, type: :service do
       expect(subject.success).to eq(true)
       expect(subject.object.name).to eq(params[:name])
       expect(subject.object.email).to eq(params[:email])
-      expect(subject.object.password).to_not eq(nil)
+      expect(subject.object.password).to eq(nil)
+      expect(subject.object.crypted_password).to_not eq(nil)
     end
 
     it 'create a User' do
@@ -172,6 +173,17 @@ RSpec.describe CreateUserService, type: :service do
             expect(subject.success).to eq(false)
           end
         end
+      end
+    end
+
+    context 'when the email is already registered' do
+      before do
+        User.create(**params)
+      end
+
+      it 'is not valid' do
+        expect(subject.errors).to eq({ email: ['already registered'] })
+        expect(subject.success).to eq(false)
       end
     end
   end

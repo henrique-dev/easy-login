@@ -54,6 +54,9 @@ gem 'faker'
 # Validation library
 gem 'dry-validation'
 
+# Provides the generator settings required for Rails to use Slim
+gem 'slim-rails'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri windows], require: 'debug/prelude'

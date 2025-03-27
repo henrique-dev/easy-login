@@ -53,6 +53,12 @@ class BasicRecord
     end
   end
 
+  def save!
+    return unless validate!
+
+    save
+  end
+
   def destroy
     @@repository[self.class.name].delete(id)
   end

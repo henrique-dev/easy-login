@@ -1,0 +1,1 @@
+- implementar indexacao nos models com repository
