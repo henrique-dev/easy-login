@@ -16,4 +16,8 @@ class User < BasicRecord
     @salt = SecureRandom.hex(16)
     @password = Digest::SHA256.hexdigest(salt + params[:password])
   end
+
+  def authenticate(password_to_check)
+    Digest::SHA256.hexdigest(salt + password_to_check) == password
+  end
 end

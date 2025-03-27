@@ -2,6 +2,7 @@ class BasicRecord
   include ActiveModel::Model
 
   @@repository = {}
+  @@repository_indexed = {}
   @@next_id = {}
 
   attr_accessor :id
@@ -23,6 +24,16 @@ class BasicRecord
 
     def find(id)
       @@repository[name][id]
+    end
+
+    def find_by(params)
+      record = @@repository[name].find do |_id, user|
+        params.all? do |key, value|
+          user.instance_variable_get("@#{key}") == value
+        end
+      end
+
+      record.nil? ? nil : record[1]
     end
 
     def create(params)
