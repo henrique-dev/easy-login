@@ -5,7 +5,7 @@ A aplicação é acessivel pelo navegador.
 
 A persistencia dos dados é feita usando apenas e memoria da aplicação.
 
-O backend é construído com Ruby on Rails.
+O backend foi feito usando Ruby on Rails, e o frontend foi utilizando o [Twitter Bootstrap](https://getbootstrap.com/).
 
 ## Sumário
 Foi utilizado o padrão de serviço, onde toda a lógica relacionada a uma ação é delegada a um serviço.
