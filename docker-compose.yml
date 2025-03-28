@@ -1,0 +1,20 @@
+services:
+  web:
+    container_name: easy_login_api
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./:/opt/app
+    ports:
+      - '$PORT:3000'
+    env_file:
+      - .env
+    environment:
+      PORT: 3000
+    healthcheck:
+      test: curl --fail localhost:3000/up || exit 1
+      interval: 5s
+      retries: 10
+      start_period: 30s
+      timeout: 10s
