@@ -1,12 +1,15 @@
 .container.d-flex.flex-column.gap-4.p-4
+  - if flash[:notice].present?
+    .text-center.bg-success.text-white.rounded-pill.p-2
+      span = flash[:notice]
   .text-center
     h1 Sign In
   = form_for :user, url: sign_in_path, class: 'd-flex flex-column p-2' do |f|
     .mb-3
-      label.form-label Email :
+      label.form-label Email
       = f.email_field :email, class: 'form-control', required: true
     .mb-3
-      label.form-label Password :
+      label.form-label Password
       = f.password_field :password, class: 'form-control', required: true
       - if @errors.present?
         span.text-danger.fs-6 Email or password is not valid

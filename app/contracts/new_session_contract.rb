@@ -1,7 +1,7 @@
 class NewSessionContract < BaseContract
   params do
     required(:email).filled(:string)
-    required(:password).filled(:string)
+    required(:password).filled(:string, min_size?: 10, max_size?: 72)
   end
 
   rule(:email) do
@@ -11,19 +11,19 @@ class NewSessionContract < BaseContract
   end
 
   rule(:password) do
-    unless /[0-9]{2}/.match?(value) # at least 2 numbers
+    if value.scan(/[0-9]/).size < 2 # at least 2 numbers
       key.failure('must have at least 2 numbers')
     end
 
-    unless %r{[ !"#$%&'()*+,-./:;<=>?@\[\\\]^_`{|}~]{2}}.match?(value) # at least 2 special chars
+    if value.scan(%r{[ !"#$%&'()*+,-./:;<=>?@\[\\\]^_`{|}~]}).size < 2 # at least 2 special chars
       key.failure('must have at least 2 special chars')
     end
 
-    unless /[A-Z]{2}/.match?(value) # at least 2 uppercase letters
+    if value.scan(/[A-Z]/).size < 2 # at least 2 uppercase letters
       key.failure('must have at least 2 uppercase letters')
     end
 
-    unless /[a-z]{2}/.match?(value) # at least 2 lowercase letters
+    if value.scan(/[a-z]/).size < 2 # at least 2 lowercase letters
       key.failure('must have at least 2 lowercase letters')
     end
   end

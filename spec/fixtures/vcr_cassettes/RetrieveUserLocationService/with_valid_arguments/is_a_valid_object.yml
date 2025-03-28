@@ -1,0 +1,61 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://ipinfo.io/6.245.34.61
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - ipinfo.io
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 28 Mar 2025 10:59:35 GMT
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Via:
+      - 1.1 google
+      Strict-Transport-Security:
+      - max-age=2592000; includeSubDomains
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "ip": "6.245.34.61",
+          "city": "Yuma",
+          "region": "Arizona",
+          "country": "US",
+          "loc": "32.7253,-114.6244",
+          "org": "AS749 DoD Network Information Center",
+          "postal": "85369",
+          "timezone": "America/Phoenix"
+        }
+  recorded_at: Fri, 28 Mar 2025 10:59:12 GMT
+recorded_with: VCR 6.3.1

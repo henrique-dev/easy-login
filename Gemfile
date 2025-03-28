@@ -89,4 +89,10 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
   gem 'selenium-webdriver'
+
+  # Record your test suite's HTTP interactions and replay them during future test runs for fast, deterministic, accurate tests.
+  gem 'vcr'
+
+  # WebMock allows stubbing HTTP requests and setting expectations on HTTP requests.
+  gem 'webmock'
 end

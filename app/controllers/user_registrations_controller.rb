@@ -11,6 +11,7 @@ class UserRegistrationsController < ApplicationController
     @success, @user, @errors = CreateUserService.call(params: post_params).result
 
     if @success
+      flash[:notice] = 'your account has been created successfully'
       redirect_to sign_in_path
     else
       @user = User.new(post_params)
