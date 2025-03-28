@@ -1,0 +1,9 @@
+.container.d-flex.flex-column.gap-4.p-4
+  .d-flex.flex-column.align-items-center
+    span = "Welcome back #{@user.name}"
+    span = "Your email account is #{span = @user.email}"
+  #location_info.d-flex.justify-content-center.p-2.flex-column.align-items-center.gap-2
+    span Loading your location
+    #loader
+  = link_to 'Sair', sign_out_path, class: 'btn btn-primary w-100'
+

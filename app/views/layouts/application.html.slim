@@ -1,10 +1,10 @@
 doctype html
-html
+html.w-100.h-100
   head
     title
       = content_for(:title) || "File Parser"
     meta[name="viewport" content="width=device-width,initial-scale=1"]
-    meta[name="apple-mobile-web-app-capable" content="yes"]
+    meta[name="mobile-web-app-capable" content="yes"]
     meta[name="turbo-prefetch" content="false"]
     = csrf_meta_tags
     = csp_meta_tag
@@ -16,4 +16,7 @@ html
 
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
-  body
+  body.bg-dark.w-100.h-100
+    .d-flex.justify-content-center.align-items-center.w-100.h-100.container-sm
+      .bg-white.mw-50.card
+        = yield

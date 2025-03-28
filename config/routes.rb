@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   post '/sign_in', to: 'sessions#create'
   get '/sign_up', to: 'user_registrations#new'
   post '/sign_up', to: 'user_registrations#create'
+  get '/sign_out', to: 'sessions#destroy'
   get '/home', to: 'home#show'
 end

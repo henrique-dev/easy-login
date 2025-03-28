@@ -1,12 +1,17 @@
-= form_for :user, url: sign_in_path do |f|
-  | Email :
-  = f.email_field :email
-  br
-  | Password :
-  = f.password_field :password
-  - if @errors.present?
-    | Email or password is not valid
-  br
-  = f.submit 'Sign in'
+.container.d-flex.flex-column.gap-4.p-4
+  .text-center
+    h1 Sign In
+  = form_for :user, url: sign_in_path, class: 'd-flex flex-column p-2' do |f|
+    .mb-3
+      label.form-label Email :
+      = f.email_field :email, class: 'form-control', required: true
+    .mb-3
+      label.form-label Password :
+      = f.password_field :password, class: 'form-control', required: true
+      - if @errors.present?
+        span.text-danger.fs-6 Email or password is not valid
+    = f.submit 'Sign in', class: 'btn btn-primary w-100'
 
-= link_to 'Sign up', sign_up_path
+  .d-flex.justify-content-center.flex-column.align-items-center
+    span Don't have an account yet?
+    = link_to 'Sign up', sign_up_path

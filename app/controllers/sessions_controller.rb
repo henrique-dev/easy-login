@@ -11,12 +11,19 @@ class SessionsController < ApplicationController
     @success, @user, @errors = AuthenticateUserService.call(params: post_params).result
 
     if @success
-      session[:user_id] = @user.id
+      session[:user_id] = cookies.signed[:user_id] = @user.id
+
       redirect_to home_path
     else
       @user = User.new(post_params)
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    session[:user_id] = nil
+
+    redirect_to sign_in_path
   end
 
   private
